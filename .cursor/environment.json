@@ -1,6 +1,6 @@
 {
   "name": "CAM5x AI CAM",
-  "install": "python3 -m venv .venv && .venv/bin/pip install --upgrade pip && .venv/bin/pip install -r requirements.txt",
+  "install": "bash scripts/install.sh",
   "terminals": [
     {
       "name": "api",
