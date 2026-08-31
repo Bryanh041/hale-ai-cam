@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAM5x · AI CAM</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%B7%3C/text%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo">◉</span>
+        <div>
+          <h1>CAM5x <span class="accent">AI CAM</span></h1>
+          <p class="tagline">Real-time face &amp; eye detection at the edge</p>
+        </div>
+      </div>
+      <div class="status" id="status">
+        <span class="dot" id="statusDot"></span>
+        <span id="statusText">Connecting…</span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="stage">
+        <div class="viewport">
+          <video id="video" autoplay playsinline muted></video>
+          <img id="result" alt="Detection result" hidden />
+          <div class="overlay" id="overlay" hidden>
+            <span class="spinner"></span>
+            <span>Analyzing…</span>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="startCam" class="btn">Start camera</button>
+          <button id="capture" class="btn btn-primary" disabled>Capture &amp; analyze</button>
+          <button id="sample" class="btn">Analyze sample image</button>
+          <button id="reset" class="btn btn-ghost" hidden>Back to live</button>
+        </div>
+      </section>
+
+      <aside class="panel">
+        <h2>Detections</h2>
+        <div class="metric">
+          <span class="metric-value" id="faceCount">—</span>
+          <span class="metric-label">faces found</span>
+        </div>
+        <ul class="detection-list" id="detectionList">
+          <li class="empty">No analysis yet. Capture a frame or analyze the sample image.</li>
+        </ul>
+      </aside>
+    </main>
+
+    <canvas id="canvas" hidden></canvas>
+    <script src="/app.js"></script>
+  </body>
+</html>
